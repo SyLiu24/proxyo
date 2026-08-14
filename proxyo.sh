@@ -42,7 +42,7 @@ menu() {
             ;;
 
         13)
-            systemctl status shadowsocks-libev-server
+            systemctl --no-pager status shadowsocks-libev-server
             menu
             ;;
         
