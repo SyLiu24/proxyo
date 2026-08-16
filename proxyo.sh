@@ -20,20 +20,20 @@ echocolor() {
 ## main menu
 while true; do
     echo "=============================="
-    echocolor cyan "            Proxy"
+    echocolor red "            Proxy"
     echo "=============================="
     echo
-    echocolor green "11. " "Teddysun"
-    echocolor green "12. " "Uninstall Shadowsocks"
-    echocolor green "13. " "Shadowsocks Status"
-    echocolor green "14. " "Shadowsocks Config Info"
+    echocolor red "11. " "Teddysun"
+    echocolor red "12. " "Uninstall Shadowsocks"
+    echocolor red "13. " "Shadowsocks Status"
+    echocolor red "14. " "Shadowsocks Config Info"
     echo
     echo "------------------------------"
     echo
-    echocolor green "21. " "v2ray-agent"
-    echocolor green "22. " "vasma"
+    echocolor red "21. " "v2ray-agent"
+    echocolor red "22. " "vasma"
     echo
-    echocolor green " 0. " "Exit"
+    echocolor red " 0. " "Exit"
     echo
 
     read -r -p "Please select: " choice
