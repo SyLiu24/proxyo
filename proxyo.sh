@@ -22,6 +22,7 @@ while true; do
     echo
 
     read -r -p "Please select: " choice
+    echo
 
     case "$choice" in
         11)
@@ -29,7 +30,6 @@ while true; do
                 https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
             chmod +x shadowsocks-all.sh
             ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
-            echo
             ;;
 
         12)
@@ -38,17 +38,14 @@ while true; do
             else
                 echo "shadowsocks-all.sh not found."
             fi
-            echo
             ;;
 
         13)
             systemctl --no-pager status shadowsocks-libev-server
-            echo
             ;;
         
         14)
             sed -n '/Congratulations,/,$p' /root/shadowsocks-all.log
-            echo
             ;;
 
         21)
@@ -56,12 +53,10 @@ while true; do
                 "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" \
                 && chmod 700 /root/install.sh \
                 && /root/install.sh
-            echo
             ;;
 
         22)
             vasma
-            echo
             ;;
 
         0)
@@ -70,7 +65,8 @@ while true; do
 
         *)
             echo "Invalid option."
-            echo
             ;;
     esac
+    echo
+    
 done
