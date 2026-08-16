@@ -3,7 +3,7 @@
 cd /root || exit 1
 ####
 
-While true; do
+while true; do
     echo "=============================="
     echo "            Proxy"
     echo "=============================="
