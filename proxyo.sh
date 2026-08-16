@@ -19,7 +19,7 @@ echocolor() {
 
 ## main menu
 while true; do
-    echo "\e[44m"
+    echo -e "\e[44m"
     echo "=============================="
     echocolor red "            Proxy"
     echo "=============================="
@@ -35,7 +35,7 @@ while true; do
     echocolor red "22. " "vasma"
     echo
     echocolor red " 0. " "Exit"
-    echo "\e[0m"
+    echo -e "\e[0m"
     echo
 
     read -r -p "Please select: " choice
