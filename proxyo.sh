@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-cd /root
+cd /root || exit 1
 ####
 
-menu() {
+While true; do
     echo "=============================="
     echo "            Proxy"
     echo "=============================="
@@ -29,7 +29,6 @@ menu() {
                 https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
             chmod +x shadowsocks-all.sh
             ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
-            menu
             ;;
 
         12)
@@ -38,17 +37,14 @@ menu() {
             else
                 echo "shadowsocks-all.sh not found."
             fi
-            menu
             ;;
 
         13)
             systemctl --no-pager status shadowsocks-libev-server
-            menu
             ;;
         
         14)
             sed -n '/Congratulations,/,$p' /root/shadowsocks-all.log
-            menu
             ;;
 
         21)
@@ -68,9 +64,6 @@ menu() {
 
         *)
             echo "Invalid option."
-            menu
             ;;
     esac
-}
-
-menu
+done
