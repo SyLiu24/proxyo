@@ -3,22 +3,37 @@
 cd /root || exit 1
 ####
 
+## Function to print colored text
+echocolor() {
+    local color
+    case "$1" in
+        red)    color="\033[31m" ;;
+        green)  color="\033[32m" ;;
+        yellow) color="\033[33m" ;;
+        cyan)   color="\033[36m" ;;
+        *)      color="\033[0m" ;;
+    esac
+
+    echo -e "${color}$2\033[0m$3"
+}
+
+## main menu
 while true; do
     echo "=============================="
-    echo "            Proxy"
+    echocolor cyan "            Proxy"
     echo "=============================="
     echo
-    echo "11. Teddysun"
-    echo "12. Uninstall Shadowsocks"
-    echo "13. Shadowsocks Status"
-    echo "14. Shadowsocks Config Info"
+    echocolor green "11. " "Teddysun"
+    echocolor green "12. " "Uninstall Shadowsocks"
+    echocolor green "13. " "Shadowsocks Status"
+    echocolor green "14. " "Shadowsocks Config Info"
     echo
     echo "------------------------------"
     echo
-    echo "21. v2ray-agent"
-    echo "22. vasma"
+    echocolor green "21. " "v2ray-agent"
+    echocolor green "22. " "vasma"
     echo
-    echo " 0. Exit"
+    echocolor green " 0. " "Exit"
     echo
 
     read -r -p "Please select: " choice
@@ -36,7 +51,7 @@ while true; do
             if  [[ -f /root/shadowsocks-all.sh ]]; then
                 /root/shadowsocks-all.sh uninstall
             else
-                echo "shadowsocks-all.sh not found."
+                echocolor red "shadowsocks-all.sh not found."
             fi
             ;;
 
@@ -68,5 +83,5 @@ while true; do
             ;;
     esac
     echo
-    
+
 done
