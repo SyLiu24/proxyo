@@ -7,37 +7,37 @@ cd /root || exit 1
 echocolor() {
     local color
     case "$1" in
-        red)    color="\033[31m" ;;
-        green)  color="\033[32m" ;;
-        yellow) color="\033[33m" ;;
-        cyan)   color="\033[36m" ;;
-        *)      color="\033[0m" ;;
+        red)    color="\e[31m" ;;
+        green)  color="\e[32m" ;;
+        yellow) color="\e[33m" ;;
+        yellowbg) color="\e[30;43m" ;;
+        cyan)   color="\e[36m" ;;
+        *)      color="\e[0m" ;;
     esac
 
-    echo -e "${color}$2\033[0m$3"
+    echo -e "${color}$2\e[0m$3"
 }
 
 ## main menu
 while true; do
-    echo "=============================="
-    echo "            Proxy"
-    echo "=============================="
     echo
-    echocolor red "11. " "Teddysun"
-    echocolor red "12. " "Uninstall Shadowsocks"
-    echocolor red "13. " "Shadowsocks Status"
-    echocolor red "14. " "Shadowsocks Config Info"
+    echocolor yellowbg "            Proxyo            "
     echo
-    echo "------------------------------"
+    echocolor yellow "11. Teddysun"
+    echocolor yellow "12. Uninstall Shadowsocks"
+    echocolor yellow "13. Shadowsocks Status"
+    echocolor yellow "14. Shadowsocks Config Info"
     echo
-    echocolor red "21. " "v2ray-agent"
-    echocolor red "22. " "vasma"
+    echocolor yellow "------------------------------"
     echo
-    echocolor red " 0. " "Exit"
+    echocolor yellow "21. v2ray-agent"
+    echocolor yellow "22. vasma"
+    echo
+    echocolor yellow " 0. Exit"
     echo
 
-    read -r -p "Please select: " choice
-    echo
+    read -r -p $'\e[32mPlease select: \e[33m' choice
+    echocolor 0
 
     case "$choice" in
         11)
@@ -79,9 +79,8 @@ while true; do
             ;;
 
         *)
-            echo "Invalid option."
+            echocolor red "Invalid option."
             ;;
     esac
-    echo
 
 done
