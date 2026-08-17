@@ -36,7 +36,7 @@ while true; do
     echocolor yellow " 0. Exit"
     echo
 
-    read -r -p $'\e[32mPlease select: \e[33m' choice
+    read -r -p $'\e[30;43mPlease select:\e[0m \e[33m' choice
     echocolor 0
 
     case "$choice" in
